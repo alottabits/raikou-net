@@ -3,61 +3,61 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
     - repo: https://github.com/commitizen-tools/commitizen
-      rev: v3.24.0
+      rev: v4.8.3
       hooks:
           - id: commitizen
             stages: [commit-msg]
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v4.6.0
+      rev: v6.0.0
       hooks:
           - id: check-ast
-            stages: [commit]
+            stages: [pre-commit]
           - id: end-of-file-fixer
-            stages: [commit]
+            stages: [pre-commit]
           - id: mixed-line-ending
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-toml
-            stages: [commit]
+            stages: [pre-commit]
           - id: trailing-whitespace
             exclude: cm-cfg
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-docstring-first
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-yaml
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-json
-            stages: [commit]
+            stages: [pre-commit]
           - id: pretty-format-json
             args: [--autofix, --indent=4]
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-added-large-files
             args: [--maxkb=3000]
-            stages: [commit]
+            stages: [pre-commit]
           - id: requirements-txt-fixer
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-merge-conflict
-            stages: [commit]
+            stages: [pre-commit]
           - id: debug-statements
-            stages: [commit]
+            stages: [pre-commit]
           - id: check-executables-have-shebangs
             language: python
             files: \.py$
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/Lucas-C/pre-commit-hooks
       rev: v1.5.5
       hooks:
           - id: remove-crlf
-            stages: [commit]
+            stages: [pre-commit]
           - id: remove-tabs
             exclude: cm-cfg
-            stages: [commit]
+            stages: [pre-commit]
           - id: forbid-crlf
-            stages: [commit]
+            stages: [pre-commit]
           - id: forbid-tabs
             exclude: cm-cfg
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/myint/eradicate
-      rev: 2.3.0
+      rev: 3.0.0
       hooks:
           - id: eradicate
             name: eradicate
@@ -66,48 +66,48 @@ repos:
             language: python
             files: \.py$
             args: [--in-place]
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/asottile/pyupgrade
-      rev: v3.15.2
+      rev: v3.20.0
       hooks:
           - id: pyupgrade
             args: [--py39-plus, --keep-runtime-typing]
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/ikamensh/flynt/
-      rev: 1.0.1
+      rev: 1.0.6
       hooks:
           - id: flynt
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
       rev: 0.2.3
       hooks:
           - id: yamlfmt
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/adrienverge/yamllint.git
-      rev: v1.35.1
+      rev: v1.37.1
       hooks:
           - id: yamllint
             args: [--format, parsable]
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.4.2
+      rev: v0.12.8
       hooks:
           - id: ruff
             # https://docs.astral.sh/ruff/formatter/#sorting-imports
             args: [check, --select, I, --fix]
             name: ruff-isort
-            stages: [commit]
+            stages: [pre-commit]
           - id: ruff-format
-            stages: [commit]
+            stages: [pre-commit]
           - id: ruff
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/akaihola/darglint2
       rev: v1.8.2
       hooks:
           - id: darglint2
             args: [--docstring-style, sphinx]
-            stages: [commit]
+            stages: [pre-commit]
     - repo: https://github.com/hadolint/hadolint
-      rev: v2.13.0-beta
+      rev: v2.13.1-beta
       hooks:
           - id: hadolint
