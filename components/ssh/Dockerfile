@@ -1,5 +1,5 @@
 # bind library build stage.
-FROM python:3.12.4-slim-bookworm AS build-stage
+FROM python:3.13.5-slim-bookworm AS build-stage
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -18,7 +18,7 @@ RUN wget -q http://daniel-lange.com/software/bind.c -O bind.c \
 
 
 # Debian SSH server start from here.
-FROM python:3.12.4-slim-bookworm
+FROM python:3.13.5-slim-bookworm
 
 LABEL maintainer="ktewari@libertyglobal.com"
 LABEL version="1.9.2p1"
